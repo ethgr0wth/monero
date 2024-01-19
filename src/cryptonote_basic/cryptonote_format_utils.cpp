@@ -1136,16 +1136,26 @@ namespace cryptonote
       decimal_point = default_decimal_point;
     switch (decimal_point)
     {
-      case 12:
-        return "monero";
+      case 10:
+        return "crown";
       case 9:
-        return "millinero";
+        return "partcrown";
+      case 8:
+        return "virbovocrown";
+      case 7:
+        return vivocrown";
       case 6:
-        return "micronero";
+        return "portecrown";
+      case 5:
+        return "millicrown";
+      case 4:
+        return "fortocrown";
       case 3:
-        return "nanonero";
+        return "macrocrown";
+      case 2:
+        return "microcrown";
       case 0:
-        return "piconero";
+        return "picocrown";
       default:
         ASSERT_MES_AND_THROW("Invalid decimal point specification: " << decimal_point);
     }
