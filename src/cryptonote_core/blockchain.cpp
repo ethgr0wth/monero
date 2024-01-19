@@ -1977,8 +1977,12 @@ bool Blockchain::handle_alternative_block(const block& b, const crypto::hash& id
     bei.height = prev_height + 1;
     uint64_t block_reward = get_outs_money_amount(b.miner_tx);
     const uint64_t prev_generated_coins = alt_chain.size() ? prev_data.already_generated_coins : m_db->get_block_already_generated_coins(prev_height);
-    bei.already_generated_coins = (block_reward < (MONEY_SUPPLY - prev_generated_coins)) ? prev_generated_coins + block_reward : MONEY_SUPPLY;
-
+    const uint8_t version = get_current_hard_fork_version();
+    if(version < 2) {
+      bei.already_generated_coins = (block_reward < (MONEY_SUPPLY - prev_generated_coins)) ? prev_generated_coins + block_reward : MONEY_SUPPLY;
+    } else {
+      bei.already_generated_coins = (block_reward < (COIN_SUPPLY - prev_generated_coins)) ? prev_generated_coins + block_reward : COIN_SUPPLY;
+    }
     // verify that the block's timestamp is within the acceptable range
     // (not earlier than the median of the last X blocks)
     if(!check_block_timestamp(timestamps, b))
@@ -4360,7 +4364,12 @@ leave:
   // coins will eventually exceed MONEY_SUPPLY and overflow a uint64. To prevent overflow, cap already_generated_coins
   // at MONEY_SUPPLY. already_generated_coins is only used to compute the block subsidy and MONEY_SUPPLY yields a
   // subsidy of 0 under the base formula and therefore the minimum subsidy >0 in the tail state.
-  already_generated_coins = base_reward < (MONEY_SUPPLY-already_generated_coins) ? already_generated_coins + base_reward : MONEY_SUPPLY;
+  const uint8_t version = get_current_hard_fork_version();
+  if(version < 2) {
+    already_generated_coins = base_reward < (MONEY_SUPPLY-already_generated_coins) ? already_generated_coins + base_reward : MONEY_SUPPLY;
+  } else {
+    already_generated_coins = base_reward < (COIN_SUPPLY-already_generated_coins) ? already_generated_coins + base_reward : COIN_SUPPLY;
+  }
   if(blockchain_height)
     cumulative_difficulty += m_db->get_block_cumulative_difficulty(blockchain_height - 1);
 
