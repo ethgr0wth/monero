@@ -1113,10 +1113,15 @@ namespace cryptonote
   {
     switch (decimal_point)
     {
-      case 12:
+      case 10:
       case 9:
+      case 8:
+      case 7:
       case 6:
+      case 5:
+      case 4:
       case 3:
+      case 2:
       case 0:
         default_decimal_point = decimal_point;
         break;
@@ -1143,7 +1148,7 @@ namespace cryptonote
       case 8:
         return "virbovocrown";
       case 7:
-        return vivocrown";
+        return "vivocrown";
       case 6:
         return "portecrown";
       case 5:
