@@ -65,7 +65,7 @@
 #undef MONERO_DEFAULT_LOG_CATEGORY
 #define MONERO_DEFAULT_LOG_CATEGORY "net.p2p"
 
-#define MIN_WANTED_SEED_NODES 12
+#define MIN_WANTED_SEED_NODES 4
 
 static inline boost::asio::ip::address_v4 make_address_v4_from_v6(const boost::asio::ip::address_v6& a)
 {
