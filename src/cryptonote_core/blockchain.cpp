@@ -4365,7 +4365,7 @@ leave:
   // at MONEY_SUPPLY. already_generated_coins is only used to compute the block subsidy and MONEY_SUPPLY yields a
   // subsidy of 0 under the base formula and therefore the minimum subsidy >0 in the tail state.
   const uint8_t version = get_current_hard_fork_version();
-  if(version < 2) {
+  if(version < 1) {
     already_generated_coins = base_reward < (MONEY_SUPPLY-already_generated_coins) ? already_generated_coins + base_reward : MONEY_SUPPLY;
   } else {
     already_generated_coins = base_reward < (COIN_SUPPLY-already_generated_coins) ? already_generated_coins + base_reward : COIN_SUPPLY;
