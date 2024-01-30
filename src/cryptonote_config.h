@@ -169,20 +169,20 @@
 #define THREAD_STACK_SIZE                       5 * 1024 * 1024
 
 #define HF_VERSION_DYNAMIC_FEE                  4
-#define HF_VERSION_MIN_MIXIN_4                  6
-#define HF_VERSION_MIN_MIXIN_6                  7
-#define HF_VERSION_MIN_MIXIN_10                 8
-#define HF_VERSION_MIN_MIXIN_15                 15
+#define HF_VERSION_MIN_MIXIN_4                  20
+#define HF_VERSION_MIN_MIXIN_6                  20
+#define HF_VERSION_MIN_MIXIN_10                 20
+#define HF_VERSION_MIN_MIXIN_15                 20
 #define HF_VERSION_ENFORCE_RCT                  6
 #define HF_VERSION_PER_BYTE_FEE                 8
 #define HF_VERSION_SMALLER_BP                   10
 #define HF_VERSION_LONG_TERM_BLOCK_WEIGHT       10
-#define HF_VERSION_MIN_2_OUTPUTS                12
-#define HF_VERSION_MIN_V2_COINBASE_TX           12
-#define HF_VERSION_SAME_MIXIN                   12
-#define HF_VERSION_REJECT_SIGS_IN_COINBASE      12
-#define HF_VERSION_ENFORCE_MIN_AGE              12
-#define HF_VERSION_EFFECTIVE_SHORT_TERM_MEDIAN_IN_PENALTY 12
+#define HF_VERSION_MIN_2_OUTPUTS                20
+#define HF_VERSION_MIN_V2_COINBASE_TX           20
+#define HF_VERSION_SAME_MIXIN                   20
+#define HF_VERSION_REJECT_SIGS_IN_COINBASE      20
+#define HF_VERSION_ENFORCE_MIN_AGE              20
+#define HF_VERSION_EFFECTIVE_SHORT_TERM_MEDIAN_IN_PENALTY 20
 #define HF_VERSION_EXACT_COINBASE               13
 #define HF_VERSION_CLSAG                        13
 #define HF_VERSION_DETERMINISTIC_UNLOCK_TIME    13
