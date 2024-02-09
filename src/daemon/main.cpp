@@ -199,7 +199,7 @@ int main(int argc, char const * argv[])
     // Monero Version
     if (command_line::get_arg(vm, command_line::arg_version))
     {
-      std::cout << "Monero '" << MONERO_RELEASE_NAME << "' (v" << MONERO_VERSION_FULL << ")" << ENDL;
+      std::cout << "Crown '" << MONERO_RELEASE_NAME << "' (v" << MONERO_VERSION_FULL << ")" << ENDL;
       return 0;
     }
 
