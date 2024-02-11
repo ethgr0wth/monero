@@ -1978,7 +1978,7 @@ bool Blockchain::handle_alternative_block(const block& b, const crypto::hash& id
     uint64_t block_reward = get_outs_money_amount(b.miner_tx);
     const uint64_t prev_generated_coins = alt_chain.size() ? prev_data.already_generated_coins : m_db->get_block_already_generated_coins(prev_height);
     const uint8_t version = get_current_hard_fork_version();
-    if(version < 1) {
+    if(prev_height == 0) {
       bei.already_generated_coins = (block_reward < (MONEY_SUPPLY - prev_generated_coins)) ? prev_generated_coins + block_reward : MONEY_SUPPLY;
     } else {
       bei.already_generated_coins = (block_reward < (COIN_SUPPLY - prev_generated_coins)) ? prev_generated_coins + block_reward : COIN_SUPPLY;
