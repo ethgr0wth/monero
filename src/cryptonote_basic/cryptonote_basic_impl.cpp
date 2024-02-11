@@ -94,9 +94,12 @@ namespace cryptonote {
     uint64_t base_reward_v1 = (MONEY_SUPPLY - already_generated_coins) >> emission_speed_factor;
     uint64_t base_reward_v2 = (COIN_SUPPLY - already_generated_coins) >> emission_speed_factor;
     uint64_t base_reward = height < 1 ? base_reward_v1 : base_reward_v2;
-    if (base_reward < FINAL_SUBSIDY_PER_MINUTE*target_minutes)
-    {
-      base_reward = FINAL_SUBSIDY_PER_MINUTE*target_minutes;
+    // maybe work on better final subsidy later
+    const uint64_t FINAL_SUBSIDY_ACTIVATOR = 666U;
+    if (base_reward < FINAL_SUBSIDY_ACTIVATOR){
+      if (already_generated_coins >= COIN_SUPPLY){
+        base_reward = FINAL_SUBSIDY_PER_MINUTE;
+      }
     }
 
     uint64_t full_reward_zone = get_min_block_weight(version);
