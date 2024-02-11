@@ -84,7 +84,7 @@ namespace cryptonote {
     static_assert(DIFFICULTY_TARGET_V2%60==0&&DIFFICULTY_TARGET_V1%60==0,"difficulty targets must be a multiple of 60");
     const int target = version < 2 ? DIFFICULTY_TARGET_V1 : DIFFICULTY_TARGET_V2;
     const int target_minutes = target / 60;
-    const int emission_speed_factor = height <= 1 ? EMISSION_SPEED_FACTOR_PER_MINUTE - (target_minutes-1) : EMISSION_SPEED_FACTOR_PER_MINUTE + 6;
+    const int emission_speed_factor = height <= 1 ? EMISSION_SPEED_FACTOR_PER_MINUTE - (target_minutes-1) : EMISSION_SPEED_FACTOR_PER_MINUTE + 5;
     
     const uint64_t genesis = 3900000000000000000U;
     if ((uint64_t)height == 1) {
@@ -94,9 +94,12 @@ namespace cryptonote {
     uint64_t base_reward_v1 = (MONEY_SUPPLY - already_generated_coins) >> emission_speed_factor;
     uint64_t base_reward_v2 = (COIN_SUPPLY - already_generated_coins) >> emission_speed_factor;
     uint64_t base_reward = height < 1 ? base_reward_v1 : base_reward_v2;
-    if (base_reward < FINAL_SUBSIDY_PER_MINUTE*target_minutes)
-    {
-      base_reward = FINAL_SUBSIDY_PER_MINUTE*target_minutes;
+    // maybe work on better final subsidy later
+    const uint64_t FINAL_SUBSIDY_ACTIVATOR = 666U;
+    if (base_reward < FINAL_SUBSIDY_ACTIVATOR){
+      if (already_generated_coins >= COIN_SUPPLY){
+        base_reward = FINAL_SUBSIDY_PER_MINUTE;
+      }
     }
 
     uint64_t full_reward_zone = get_min_block_weight(version);

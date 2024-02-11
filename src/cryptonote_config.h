@@ -54,7 +54,7 @@
 #define MONEY_SUPPLY                                    ((uint64_t)(-1))
 #define COIN_SUPPLY                                     ((uint64_t)10000000000000000000)
 #define EMISSION_SPEED_FACTOR_PER_MINUTE                (20)
-#define FINAL_SUBSIDY_PER_MINUTE                        ((uint64_t)180000000000) 
+#define FINAL_SUBSIDY_PER_MINUTE                        ((uint64_t)6000000000) // 0.6
 
 #define CRYPTONOTE_REWARD_BLOCKS_WINDOW                 100
 #define CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_V2    60000 //size of block (bytes) after which reward for block calculated using block size
