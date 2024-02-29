@@ -2187,7 +2187,7 @@ bool simple_wallet::welcome(const std::vector<std::string> &args)
   message_writer() << tr("Welcome to Crown, the private cryptocurrency.");
   message_writer() << "";
   message_writer() << tr("Crown, like Bitcoin, is a cryptocurrency. That is, it is digital money.");
-  message_writer() << tr("Unlike Bitcoin, your Monero transactions and balance stay private and are not visible to the world by default.");
+  message_writer() << tr("Unlike Bitcoin, your Crown transactions and balance stay private and are not visible to the world by default.");
   message_writer() << tr("However, you have the option of making those available to select parties if you choose to.");
   message_writer() << "";
   message_writer() << tr("Crown protects your privacy on the blockchain, and while Crown strives to improve all the time,");
